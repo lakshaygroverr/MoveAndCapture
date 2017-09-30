@@ -1,0 +1,24 @@
+
+#include "mbed.h"
+ 
+DigitalOut myled(LED3);
+DigitalIn PIR(PC_7);  //D8
+ 
+Serial pc(USBTX, USBRX);
+Serial dev(D1, D0);
+int main() {
+    int PIR_sensor;
+    //int trigger;
+    while(1) {
+        PIR_sensor = PIR;
+       // trigger = PIR;
+        if(PIR)
+        {
+            //pc.putc('1');
+            dev.putc("t");
+        }myled =! PIR_sensor;
+        //wait(0.1);
+        //trigger = 0;
+    }
+}
+         
